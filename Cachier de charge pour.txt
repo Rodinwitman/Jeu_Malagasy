@@ -1,0 +1,12 @@
+Cachier de charge pour jeux de mot malagasy 
+
+base de donné :
+	- Utilisateur (stock les compte des utilisateur : MDP, Email, Nom, Prénom ...) 
+	
+	- Les info sur les compte de l'utilisateur (niveau, point(elow), nombre de niveau fini) (en relation avec chaque compte de joueurs samy manana ny azy)
+	
+	- Classement des joueurs en relation avec chaque comte dans le site web (comparaison entre les points (elow) de chaque compte) (classement : par jeux / globale) 
+	
+	- nbr de défis cotidient reçus et fins par le joueurs  (en relation avec chaque compte) samy manana ny azy
+	
+	- Avis des joueurs pour chaque jeux
