@@ -2,6 +2,12 @@ const path = require("path");
 const fs = require("fs");
 const { Pool } = require("pg");
 
+// Créer le dossier avant d'ouvrir la base
+const dataDir = path.join(__dirname, '../data');
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+}
+
 if (!process.env.DATABASE_URL) {
     throw new Error(
         "La variable DATABASE_URL est obligatoire."
