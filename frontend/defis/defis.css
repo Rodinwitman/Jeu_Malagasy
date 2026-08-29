@@ -1,0 +1,30 @@
+.challenge-hero {
+    background: linear-gradient(135deg, var(--color-diff-sarotra), #8f1a2c);
+    color: #fff;
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    margin-bottom: var(--space-5);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+.challenge-hero::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+}
+.challenge-hero__label { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); opacity: .85; margin-bottom: var(--space-2); }
+.challenge-hero__label .icon { width: 18px; height: 18px; }
+.challenge-hero__game { font-size: var(--fs-2xl); margin-bottom: var(--space-2); }
+.challenge-hero__mission { font-size: var(--fs-md); opacity: .95; margin-bottom: var(--space-4); max-width: 480px; }
+.challenge-hero__meta { display: flex; gap: var(--space-4); margin-bottom: var(--space-4); flex-wrap: wrap; }
+.challenge-hero__meta-item { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); }
+.challenge-hero__meta-item .icon { width: 18px; height: 18px; }
+.challenge-hero .btn { background: #fff; color: var(--color-diff-sarotra); }
+.challenge-hero.done { background: linear-gradient(135deg, var(--color-success), #1c6b47); }
+.challenge-hero.done .btn { color: var(--color-success); }
+
+.history-row-empty { padding: var(--space-5); text-align: center; color: var(--color-text-muted); }

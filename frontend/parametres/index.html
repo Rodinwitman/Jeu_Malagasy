@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="mg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanamboarana — Teny Malagasy</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
+    <link rel="stylesheet" href="parametres.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <div id="sidebar-mount"></div>
+
+    <main class="dashboard-main">
+        <header class="dash-header">
+            <div>
+                <h1>Fanamboarana</h1>
+                <p class="dash-subtitle">Ovay araka ny tianao ny fomba fisehon'ny tranonkala.</p>
+            </div>
+        </header>
+
+        <section class="settings-card">
+            <h3>Endrika</h3>
+            <p class="settings-desc">Mifidiana ny endrika mazava na maizina, mihatra amin'ny tranonkala manontolo.</p>
+            <div class="theme-switcher">
+                <button class="theme-option" id="opt-light" data-theme="light">
+                    <span class="theme-option__icon" id="icon-light"></span>
+                    <span>Mazava</span>
+                </button>
+                <button class="theme-option" id="opt-dark" data-theme="dark">
+                    <span class="theme-option__icon" id="icon-dark"></span>
+                    <span>Maizina</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="settings-card">
+            <h3>Feo</h3>
+            <p class="settings-desc">
+                Manana fanamboarana feo manokana ny jeux tsirairay (tsy eto amin'ny fanamboarana ankapobeny).
+                Azonao ovaina haingana eto ihany koa raha te-hanao izany ianao :
+            </p>
+            <div id="sound-list" class="sound-list"></div>
+        </section>
+
+        <section class="settings-card">
+            <h3>Kaonty</h3>
+            <div id="account-info" class="account-info"></div>
+            <button class="btn btn-outline" id="btn-logout-settings">Hivoaka</button>
+        </section>
+
+        <section class="settings-card settings-card--danger">
+            <h3>Faritra mampidi-doza</h3>
+            <p class="settings-desc">
+                Hamafa ny angona rehetra (isa, XP, laharana, hevitra, fanamby) eo amin'ity fitaovana ity.
+                Tsy azo averina io hetsika io.
+            </p>
+            <button class="btn btn-danger" id="btn-reset">Averina ho tsinontsinona ny angona</button>
+        </section>
+    </main>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="parametres.js"></script>
+</body>
+
+</html>

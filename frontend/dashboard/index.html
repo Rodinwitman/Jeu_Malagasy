@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="mg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitambarana — Teny Malagasy</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar__brand">
+            <span></span>
+            <span>Teny Malagasy</span>
+        </div>
+        <nav class="sidebar__nav">
+            <a class="sidebar__link" href="../dashboard/index.html" data-icon="home">Fitambarana</a>
+            <a class="sidebar__link" href="../dashboard/index.html#jeux" data-icon="game">Jeux</a>
+            <a class="sidebar__link" href="../regles/index.html" data-icon="list">Fitsipiky ny lalao</a>
+            <a class="sidebar__link" href="../avis/index.html" data-icon="message">Hevitra momba ny lalao</a>
+            <a class="sidebar__link" href="../classement/index.html" data-icon="trophy">Laharana</a>
+            <a class="sidebar__link" href="../defis/index.html" data-icon="flame">Fanamby isan'andro</a>
+            <a class="sidebar__link" href="../parametres/index.html" data-icon="settings">Fanamboarana</a>
+        </nav>
+        <div class="sidebar__footer">
+            <div class="sidebar__user">
+                <span class="sidebar__avatar" data-icon="user"></span>
+                <span data-user-name>—</span>
+            </div>
+            <button class="sidebar__link" data-logout data-icon="logout">Hivoaka</button>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay"></div>
+
+    <main class="dashboard-main">
+        <header class="dash-header">
+            <div>
+                <h1 id="welcome-title">Tongasoa,</h1>
+                <p class="dash-subtitle">Andao hilalao teny Malagasy anio !</p>
+            </div>
+            <button class="icon-toggle" data-theme-toggle aria-label="Ovao ny endrika"></button>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-card__icon" data-icon="trophy"></span>
+                <div>
+                    <p class="stat-card__label">Haavo</p>
+                    <p class="stat-card__value" id="stat-niveau">1</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-card__icon" data-icon="flame"></span>
+                <div>
+                    <p class="stat-card__label">Isa</p>
+                    <p class="stat-card__value" id="stat-points">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-card__icon" data-icon="trophy"></span>
+                <div>
+                    <p class="stat-card__label">Laharana</p>
+                    <p class="stat-card__value" id="stat-rang">—</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="xp-section">
+            <div class="xp-section__top">
+                <span>Haavo <strong id="xp-niveau">1</strong></span>
+                <span id="xp-fraction">0 / 100 XP</span>
+            </div>
+            <div class="xp-bar"><div class="xp-bar__fill" id="xp-fill" style="width:0%"></div></div>
+        </section>
+
+        <section class="daily-challenge" id="daily-challenge">
+            <!-- injecté par dashboard.js -->
+        </section>
+
+        <section id="jeux">
+            <div class="section-head">
+                <h2>Jeux</h2>
+                <a href="../regles/index.html" class="btn-ghost btn btn-sm">Jereo ny fitsipika rehetra</a>
+            </div>
+            <div class="cards-grid" id="games-grid">
+                <!-- injecté par dashboard.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Fenêtre de règles avant une partie -->
+    <div class="modal-overlay" id="rules-modal">
+        <div class="modal">
+            <div class="modal__header">
+                <h2 id="rules-title">—</h2>
+                <button class="modal__close" id="rules-close" aria-label="Hidiona"></button>
+            </div>
+            <p id="rules-desc"></p>
+            <ul class="modal__rules-list" id="rules-list"></ul>
+            <div class="modal__meta">
+                <span id="rules-time"></span>
+                <span id="rules-points"></span>
+            </div>
+            <div>
+                <span id="rules-diff-mora" class="badge-diff mora">Mora</span>
+                <span id="rules-diff-antonony" class="badge-diff antonony">Antonony</span>
+                <span id="rules-diff-sarotra" class="badge-diff sarotra">Sarotra</span>
+            </div>
+            <div class="modal__actions">
+                <button class="btn btn-outline" id="rules-back">Hiverina</button>
+                <button class="btn" id="rules-start">Hanomboka ny lalao</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

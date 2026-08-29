@@ -1,0 +1,169 @@
+/* ===================================================================
+   CONNEXION.CSS
+   Reprise directe de la structure/animation de la page fournie,
+   avec les tokens du design system (variables.css) et une touche
+   malagasy très subtile (liseré tricolore fin sous le logo).
+   =================================================================== */
+
+body.page-connexion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--space-3);
+    position: relative;
+}
+
+.landing-back-link {
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-4);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    z-index: 10;
+}
+.landing-back-link:hover { color: var(--color-primary); }
+
+.container {
+    position: relative;
+    width: 850px;
+    max-width: 100%;
+    height: 550px;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* Liseré malagasy discret en haut de carte : identité subtile, non envahissante */
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent-red) 0 33%, #ffffff 33% 66%, var(--color-accent-green) 66% 100%);
+    z-index: 5;
+}
+
+.form-box {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--color-surface);
+    display: flex;
+    align-items: center;
+    color: var(--color-text);
+    text-align: center;
+    padding: 40px;
+    z-index: 1;
+    transition: right var(--transition-slow), visibility 0s 1s;
+}
+
+.container.active .form-box { right: 50%; }
+
+.form-box.register { visibility: hidden; }
+.container.active .form-box.register { visibility: visible; }
+
+.form-box form { width: 100%; }
+
+.container h1 { font-size: var(--fs-2xl); margin: -10px 0 var(--space-3); color: var(--color-text); }
+
+/* ---- Champs (icônes injectées en JS dans .field-icon) ---- */
+.field-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    display: flex;
+}
+.field-icon .icon { width: 20px; height: 20px; }
+
+.forgot-link { margin: -10px 0 var(--space-3); text-align: right; }
+.forgot-link a { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.forgot-link a:hover { color: var(--color-primary); }
+
+.container p { font-size: var(--fs-sm); margin: var(--space-3) 0; color: var(--color-text-muted); }
+
+/* ---- Boutons sociaux (icônes injectées en JS) ---- */
+.social-icon { display: flex; justify-content: center; gap: var(--space-2); }
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: var(--fs-md);
+    transition: var(--transition-fast);
+}
+.social-btn:hover { border-color: var(--color-primary); color: var(--color-primary); transform: translateY(-2px); }
+
+/* ---- Panneau de transition (bleu, forme arrondie animée) ---- */
+.toggle-box { position: absolute; width: 100%; height: 100%; }
+
+.toggle-box::before {
+    content: '';
+    position: absolute;
+    left: -250%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border-radius: 150px;
+    z-index: 2;
+    transition: 1.8s ease-in-out;
+}
+.container.active .toggle-box::before { left: 50%; }
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--space-4);
+    text-align: center;
+    z-index: 2;
+    transition: var(--transition-base);
+}
+
+.toggle-panel h1 { font-size: var(--fs-2xl); margin-bottom: var(--space-2); }
+.toggle-panel p { color: rgba(255,255,255,.85); margin-bottom: var(--space-4); }
+.toggle-panel .btn { width: 180px; height: 46px; color: #fff; border-color: #fff; }
+.toggle-panel .btn:hover { background: #fff; color: var(--color-primary); }
+
+.toggle-panel.toggle-left { left: 0; transition-delay: 1.2s; }
+.container.active .toggle-panel.toggle-left { left: -50%; transition-delay: .6s; }
+
+.toggle-panel.toggle-right { right: -50%; transition-delay: .6s; }
+.container.active .toggle-panel.toggle-right { right: 0; transition-delay: 1.2s; }
+
+/* ---- Responsive (même philosophie que le fichier fourni, breakpoint 650px) ---- */
+@media screen and (max-width: 650px) {
+    .container { height: calc(100vh - 40px); border-radius: var(--radius-lg); }
+    .form-box { bottom: 0; width: 100%; height: 70%; padding: 24px; }
+    .container.active .form-box { right: 0; bottom: 30%; }
+
+    .toggle-box::before { left: 0; top: -270%; width: 100%; height: 300%; border-radius: 20vw; }
+    .container.active .toggle-box::before { left: 0; top: 70%; }
+
+    .toggle-panel { width: 100%; height: 30%; padding: 0 var(--space-3); }
+    .toggle-panel h1 { font-size: var(--fs-lg); }
+    .toggle-panel p { margin-bottom: var(--space-2); font-size: var(--fs-sm); }
+    .toggle-panel .btn { width: 140px; height: 40px; font-size: var(--fs-sm); }
+
+    .toggle-panel.toggle-left { top: 0; }
+    .container.active .toggle-panel.toggle-left { left: 0; top: -30%; }
+
+    .toggle-panel.toggle-right { right: 0; bottom: -30%; }
+    .container.active .toggle-panel.toggle-right { bottom: 0; }
+}

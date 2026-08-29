@@ -1,0 +1,57 @@
+.assembly-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 52px;
+    margin-bottom: var(--space-3);
+    padding: var(--space-2);
+    background: var(--color-surface-muted);
+    border-radius: var(--radius-md);
+}
+
+.tiles-tray {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--space-4);
+}
+
+.tile {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: var(--fs-lg);
+    text-transform: uppercase;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+    cursor: pointer;
+    user-select: none;
+}
+.tile:hover { transform: translateY(-2px); }
+.tile.used { opacity: .25; pointer-events: none; }
+.tile .tile-value { position: absolute; bottom: 2px; right: 4px; font-size: 9px; font-family: var(--font-body); font-weight: 600; }
+
+.assembly-row .tile { background: var(--color-accent-gold); color: #3a2b00; }
+
+.scrabble-actions { display: flex; justify-content: center; gap: var(--space-2); margin-bottom: var(--space-3); }
+
+.found-words { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: var(--space-3); min-height: 24px; }
+.found-word-chip {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    padding: 4px var(--space-2);
+    border-radius: var(--radius-pill);
+    background: rgba(47,174,102,.12);
+    color: var(--color-success);
+}
+.found-word-chip.main { background: rgba(116,148,236,.15); color: var(--color-primary-dark); }

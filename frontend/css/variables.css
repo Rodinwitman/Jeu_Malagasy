@@ -1,0 +1,101 @@
+/* ===================================================================
+   VARIABLES.CSS
+   Design tokens de la plateforme "Teny Malagasy" (jeux de mots)
+   Basé sur la page de connexion fournie : fond clair, bleu #7494ec,
+   coins très arrondis, ombres douces.
+   Accents malagasy (rouge / vert) utilisés avec parcimonie uniquement.
+   =================================================================== */
+
+:root {
+    /* ---- Couleurs principales (héritées de la page de connexion) ---- */
+    --color-bg-light: #f4f6fb;
+    --color-bg-gradient-start: #e2e2e2;
+    --color-bg-gradient-end: #c9d6ff;
+    --color-surface: #ffffff;
+    --color-surface-muted: #eef1f8;
+    --color-text: #333333;
+    --color-text-muted: #7a7f8c;
+    --color-border: #e3e6ef;
+
+    --color-primary: #7494ec;
+    --color-primary-dark: #5a78d6;
+    --color-primary-light: #a9bdf5;
+
+    /* ---- Accents malagasy (usage restreint : badges, highlights, drapeaux de niveau) ---- */
+    --color-accent-red: #d3273e;   /* drapeau malagasy - rouge */
+    --color-accent-green: #00843d; /* drapeau malagasy - vert */
+    --color-accent-gold: #f5b942;  /* étoiles / récompenses */
+
+    /* ---- États sémantiques ---- */
+    --color-success: #2fae66;
+    --color-warning: #e6a53a;
+    --color-danger: #e0455a;
+    --color-info: var(--color-primary);
+
+    /* ---- Difficulté ---- */
+    --color-diff-mora: #2fae66;
+    --color-diff-antonony: #e6a53a;
+    --color-diff-sarotra: #d3273e;
+
+    /* ---- Rayons (coins très arrondis, identité forte de la page de connexion) ---- */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 30px;
+    --radius-pill: 999px;
+
+    /* ---- Ombres douces ---- */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .06);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, .10);
+    --shadow-lg: 0 0 30px rgba(0, 0, 0, .18);
+    --shadow-primary: 0 8px 20px rgba(116, 148, 236, .35);
+
+    /* ---- Typographie ---- */
+    --font-display: 'Yuyu', sans-serif;
+    --font-body: 'Poppins', 'Yuyu', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --fs-xs: 12px;
+    --fs-sm: 14px;
+    --fs-md: 16px;
+    --fs-lg: 20px;
+    --fs-xl: 28px;
+    --fs-2xl: 36px;
+    --fs-3xl: 48px;
+
+    /* ---- Transitions (identité animée de la page de connexion) ---- */
+    --transition-fast: .3s ease-in-out;
+    --transition-base: .6s ease-in-out;
+    --transition-slow: 1.2s ease-in-out;
+
+    /* ---- Espacements ---- */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+    --space-6: 48px;
+
+    /* ---- Layout ---- */
+    --sidebar-width: 260px;
+    --header-height: 72px;
+    --z-sidebar: 50;
+    --z-modal: 100;
+    --z-toast: 150;
+}
+
+/* ---- Thème sombre : mêmes tokens, valeurs redéfinies ---- */
+[data-theme="dark"] {
+    --color-bg-light: #12141c;
+    --color-bg-gradient-start: #14161f;
+    --color-bg-gradient-end: #1c2036;
+    --color-surface: #1a1d29;
+    --color-surface-muted: #232738;
+    --color-text: #eef0f6;
+    --color-text-muted: #9195a8;
+    --color-border: #2c3040;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .35);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, .45);
+    --shadow-lg: 0 0 30px rgba(0, 0, 0, .55);
+}

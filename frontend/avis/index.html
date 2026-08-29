@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="mg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hevitra momba ny lalao — Teny Malagasy</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
+    <link rel="stylesheet" href="../classement/classement.css">
+    <link rel="stylesheet" href="avis.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <div id="sidebar-mount"></div>
+
+    <main class="dashboard-main">
+        <header class="dash-header">
+            <div>
+                <h1>Hevitra momba ny lalao</h1>
+                <p class="dash-subtitle">Zarao ny hevitrao momba ny jeux, na jereo ny an'ny hafa.</p>
+            </div>
+            <button class="icon-toggle" data-theme-toggle aria-label="Ovao ny endrika"></button>
+        </header>
+
+        <div class="tabs" id="tabs"></div>
+
+        <section class="review-stats" id="review-stats"></section>
+
+        <section class="review-form-box">
+            <h3>Ny hevitrao</h3>
+            <div class="star-picker" id="star-picker"></div>
+            <textarea id="review-comment" placeholder="Lazao ny hevitrao momba ity jeux ity (tsy tsy maintsy) ..." rows="3"></textarea>
+            <button class="btn" id="btn-submit-review">Alefa ny hevitro</button>
+        </section>
+
+        <section>
+            <div class="section-head"><h2>Hevitra farany</h2></div>
+            <div class="review-list" id="review-list"></div>
+        </section>
+    </main>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="avis.js"></script>
+</body>
+
+</html>

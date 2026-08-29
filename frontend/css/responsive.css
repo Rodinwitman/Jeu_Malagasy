@@ -1,0 +1,65 @@
+/* ===================================================================
+   RESPONSIVE.CSS — adaptation smartphone / tablette / desktop
+   Philosophie héritée de la page de connexion (breakpoint 650px)
+   =================================================================== */
+
+/* Tablette */
+@media screen and (max-width: 1024px) {
+    :root { --sidebar-width: 220px; }
+}
+
+/* Mobile : sidebar -> hamburger, grille -> 1 colonne */
+@media screen and (max-width: 768px) {
+    .hamburger { display: flex; }
+
+    .sidebar {
+        transform: translateX(-100%);
+        width: min(80vw, 300px);
+        box-shadow: var(--shadow-lg);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-overlay.open { display: block; }
+
+    .dashboard-main {
+        margin-left: 0 !important;
+        padding-top: calc(var(--space-6) + var(--space-3)) !important;
+    }
+
+    .cards-grid { grid-template-columns: 1fr !important; }
+
+    body { overflow-x: hidden; }
+
+    .modal { padding: var(--space-4); }
+}
+
+@media screen and (max-width: 480px) {
+    .btn { font-size: var(--fs-sm); }
+    h1 { font-size: var(--fs-xl) !important; }
+
+    /* En-têtes de page (dashboard, classement, défis, avis, paramètres) */
+    .dash-header {
+        flex-wrap: wrap;
+        gap: var(--space-2);
+    }
+
+    /* Grilles de stats et de cartes : 1 seule colonne sur très petit écran */
+    .stats-grid,
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Paramètres : empiler les deux options de thème */
+    .theme-switcher {
+        flex-direction: column;
+    }
+
+    /* Éviter qu'un long email/nom d'utilisateur ne fasse déborder la ligne */
+    .account-info__row,
+    .ranking-row {
+        flex-wrap: wrap;
+    }
+    .account-info__value {
+        word-break: break-word;
+        text-align: right;
+    }
+}

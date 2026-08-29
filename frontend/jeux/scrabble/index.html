@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="mg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrabble — Teny Malagasy</title>
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../mot_cache/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+
+<body>
+    <header class="game-header">
+        <a href="../../dashboard/index.html" class="btn-ghost btn btn-sm">Hiverina</a>
+        <div class="game-header__title">
+            <h1>Scrabble</h1>
+            <div class="game-header__meta">
+                <span class="badge-diff" id="badge-palier">Mora</span>
+                <span id="niveau-label">Haavo 1 / 300</span>
+            </div>
+        </div>
+        <div class="game-header__actions">
+            <button class="icon-toggle" id="btn-sound" aria-label="Ovao ny feo"></button>
+            <button class="icon-toggle" data-theme-toggle aria-label="Ovao ny endrika"></button>
+        </div>
+    </header>
+
+    <main class="game-main">
+        <div class="game-topbar">
+            <div class="game-timer" id="game-timer">
+                <span id="timer-icon"></span>
+                <span id="timer-value">00:00</span>
+            </div>
+            <div class="game-points">
+                <span id="points-icon"></span>
+                <span id="points-value">0</span> isa
+            </div>
+        </div>
+
+        <div class="timer-bar"><div class="timer-bar__fill" id="timer-fill"></div></div>
+
+        <section class="word-card">
+            <p class="word-card__clue">Mamoròna teny Malagasy manan-kery amin'ireto litera ireto :</p>
+
+            <div class="assembly-row" id="assembly-row"></div>
+
+            <div class="tiles-tray" id="tiles-tray"></div>
+
+            <div class="scrabble-actions">
+                <button class="btn btn-ghost btn-sm" id="btn-clear">Diovy</button>
+                <button class="btn btn-sm" id="btn-submit">Alefa ny teny</button>
+            </div>
+
+            <div class="found-words" id="found-words"></div>
+
+            <div class="word-card__tools">
+                <button class="btn btn-outline btn-sm" id="btn-hint">
+                    Fanampiana (<span id="hint-count">0</span>)
+                </button>
+                <button class="btn btn-ghost btn-sm" id="btn-rules">Fitsipika</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Règles -->
+    <div class="modal-overlay" id="rules-modal">
+        <div class="modal">
+            <div class="modal__header">
+                <h2>Scrabble</h2>
+                <button class="modal__close" id="rules-close" aria-label="Hidiona"></button>
+            </div>
+            <p>Mamoròna teny Malagasy amin'ireo litera omena.</p>
+            <ul class="modal__rules-list">
+                <li>Mamoròna teny Malagasy amin'ireo litera omena.</li>
+                <li>Tsy maintsy teny manan-kery ilay teny.</li>
+                <li>Ny litera tsirairay dia manana isa.</li>
+                <li>Ny teny lava sy sarotra dia afaka manome isa bebe kokoa.</li>
+                <li>Tapitra ny fihodinana rehefa lany ny fotoana.</li>
+            </ul>
+            <div class="modal__actions">
+                <button class="btn btn-block" id="rules-ok">Azoko, andao !</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Résultat -->
+    <div class="modal-overlay" id="result-modal">
+        <div class="modal result-modal">
+            <div class="result-modal__icon" id="result-icon"></div>
+            <h2 id="result-title">—</h2>
+            <p id="result-subtitle"></p>
+            <div class="stars" id="result-stars"></div>
+            <div class="result-modal__stats">
+                <div>
+                    <p class="result-modal__label">Isa</p>
+                    <p class="result-modal__value" id="result-points">0</p>
+                </div>
+                <div>
+                    <p class="result-modal__label">XP</p>
+                    <p class="result-modal__value" id="result-xp">0</p>
+                </div>
+            </div>
+            <p class="result-modal__answer" id="result-answer"></p>
+            <div class="modal__actions">
+                <button class="btn btn-outline" id="btn-retry">Avero</button>
+                <button class="btn" id="btn-next">Manaraka</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

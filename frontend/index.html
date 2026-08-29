@@ -1,14 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mg">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Teny Malagasy — Ny tranonkalan'ny lalao teny Malagasy</title>
+    <meta name="description" content="Mianara, milalao ary manatanjaka ny teny Malagasinao amin'ny lalao teny Malagasy: Mot Nafenina, Devinette, Scrabble ary maro hafa.">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
-<body>
+<body class="landing">
 
+    <header class="landing-nav">
+        <div class="landing-nav__brand">
+            <span id="brand-icon"></span>
+            <span>Teny Malagasy</span>
+        </div>
+        <div class="landing-nav__actions">
+            <button class="icon-toggle" data-theme-toggle aria-label="Ovao ny endrika"></button>
+            <a class="btn btn-outline btn-sm" href="page_connexion/index.html">Hiditra</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <div class="hero__tricolore" aria-hidden="true"></div>
+            <div class="hero__content">
+                <span class="hero__badge">Lalao teny Malagasy</span>
+                <h1>Mianara sy milalao amin'ny <span class="hero__accent">teny Malagasinao</span></h1>
+                <p class="hero__desc">
+                    Teny Malagasy dia tranonkalan'ny lalao teny mifototra amin'ny fiteny malagasy manontolo :
+                    tadiavo ny teny miafina, valio ny devinette, ary mamoròna teny amin'ny Scrabble — miaraka
+                    amin'ny isa, XP, laharana ary fanamby isan'andro hampahery anao hatrany.
+                </p>
+                <div class="hero__actions">
+                    <a class="btn btn-pill" href="page_connexion/index.html" id="cta-main">
+                        Andao hilalao — Maimaimpoana
+                    </a>
+                    <a class="btn btn-outline btn-pill" href="#ahoana">Ahoana no fiasany ?</a>
+                </div>
+                <p class="hero__note">Tsy mila karatra ; misoratra anarana amin'ny mailaka na Google/Facebook.</p>
+            </div>
+            <div class="hero__visual" id="hero-visual"></div>
+        </section>
+
+        <!-- ===== FONCTIONNALITÉS ===== -->
+        <section class="section" id="fonctionnalites">
+            <h2 class="section__title">Izay hahitanao eto</h2>
+            <p class="section__subtitle">Rafitra tanteraka ho an'ny fitiavan-teny malagasy, na mpianatra na efa mahay.</p>
+
+            <div class="feature-grid" id="feature-grid"></div>
+        </section>
+
+        <!-- ===== JEUX ===== -->
+        <section class="section section--muted" id="jeux-apercu">
+            <h2 class="section__title">Dimy lalao, samy manana ny mahasarotra azy</h2>
+            <p class="section__subtitle">Telo amin'izy ireo dia efa azo alaina izao dia izao.</p>
+
+            <div class="cards-grid" id="games-preview-grid"></div>
+        </section>
+
+        <!-- ===== AHOANA NO FIASANY ===== -->
+        <section class="section" id="ahoana">
+            <h2 class="section__title">Ahoana no fiasany</h2>
+            <div class="steps-row" id="steps-row"></div>
+        </section>
+
+        <!-- ===== CTA FINAL ===== -->
+        <section class="final-cta">
+            <h2>Vonona hanomboka ianao ?</h2>
+            <p>Mitentina adiny vitsivitsy monja ny fisoratana anarana. Andao hitsapa ny teninao !</p>
+            <a class="btn btn-pill" href="page_connexion/index.html">Hisoratra anarana izao</a>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>Teny Malagasy — Natao tamin'ny fitiavana ny fiteny malagasy.</p>
+        <a href="regles/index.html">Fitsipiky ny lalao</a>
+    </footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="landing.js"></script>
 </body>
 
 </html>

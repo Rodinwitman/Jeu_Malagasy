@@ -1,0 +1,56 @@
+[
+  {
+    "id": "mot_cache",
+    "nom": "Mot Nafenina",
+    "description": "Tadiavo ilay teny Malagasy miafina alohan'ny hifaranan'ny fotoana.",
+    "fonctionnel": true,
+    "fitsipika": [
+      "Mitadiava ilay teny Malagasy miafina.",
+      "Mampiasà ireo litera na famantarana omena.",
+      "Mila mamaly alohan'ny hifaranan'ny fotoana.",
+      "Mahazo isa bebe kokoa ianao raha mamaly haingana.",
+      "Mihena ny isa raha mampiasa fanampiana.",
+      "Tapitra ny lalao rehefa hita ilay teny na lany ny fotoana."
+    ]
+  },
+  {
+    "id": "devinette",
+    "nom": "Devinette",
+    "description": "Valio ny fanontaniana amin'ny alalan'ny safidy atolotra.",
+    "fonctionnel": true,
+    "fitsipika": [
+      "Vakio tsara ny fanontaniana.",
+      "Mitadiava ny valiny marina.",
+      "Afaka misafidy amin'ireo valiny atolotra ianao.",
+      "Mahazo XP sy isa ianao rehefa marina ny valiny.",
+      "Ny haavo Sarotra dia manome isa bebe kokoa."
+    ]
+  },
+  {
+    "id": "scrabble",
+    "nom": "Scrabble",
+    "description": "Mamoròna teny Malagasy amin'ireo litera omena.",
+    "fonctionnel": true,
+    "fitsipika": [
+      "Mamoròna teny Malagasy amin'ireo litera omena.",
+      "Tsy maintsy teny manan-kery ilay teny.",
+      "Ny litera tsirairay dia manana isa.",
+      "Ny teny lava sy sarotra dia afaka manome isa bebe kokoa.",
+      "Tapitra ny fihodinana rehefa lany ny fotoana."
+    ]
+  },
+  {
+    "id": "pendu",
+    "nom": "Pendu",
+    "description": "Tezao ilay teny alohan'ny hahatapitra ny fihodinana.",
+    "fonctionnel": false,
+    "fitsipika": []
+  },
+  {
+    "id": "wordle",
+    "nom": "Wordle",
+    "description": "Tadiavo ilay teny ao anatin'ny fihodinana voafetra.",
+    "fonctionnel": false,
+    "fitsipika": []
+  }
+]

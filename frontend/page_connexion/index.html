@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="mg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiditra — Teny Malagasy</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="connexion.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body class="page-connexion">
+    <a href="../index.html" class="landing-back-link" aria-label="Hiverina any am-boalohany">
+        ← Teny Malagasy
+    </a>
+    <div class="container" id="container">
+        <!-- ===== HIDITRA (Login) ===== -->
+        <div class="form-box login">
+            <form id="form-login" novalidate>
+                <h1>Hiditra</h1>
+
+                <div class="field" id="field-login-username">
+                    <input type="text" id="login-username" placeholder="Anaran'ny mpampiasa" required autocomplete="username">
+                    <span class="field-icon"></span>
+                    <span class="field-error">Feno azafady ity saha ity.</span>
+                </div>
+
+                <div class="field" id="field-login-password">
+                    <input type="password" id="login-password" placeholder="Teny miafina" required autocomplete="current-password">
+                    <span class="field-icon"></span>
+                    <span class="field-error">Feno azafady ity saha ity.</span>
+                </div>
+
+                <div class="forgot-link">
+                    <a href="#" id="forgot-link">Hadinoinao ve ny teny miafina ?</a>
+                </div>
+
+                <button type="submit" class="btn btn-block">Hiditra</button>
+
+                <p>na midira amin'ny alalan'ny tambajotra sosialy</p>
+                <div class="social-icon">
+                    <button type="button" class="social-btn" id="btn-google" aria-label="Hiditra amin'ny Google"></button>
+                    <button type="button" class="social-btn" id="btn-facebook" aria-label="Hiditra amin'ny Facebook"></button>
+                    <button type="button" class="social-btn" id="btn-twitter" aria-label="Hiditra amin'ny Twitter/X"></button>
+                </div>
+            </form>
+        </div>
+
+        <!-- ===== HISORATRA ANARANA (Registration) ===== -->
+        <div class="form-box register">
+            <form id="form-register" novalidate>
+                <h1>Hisoratra anarana</h1>
+
+                <div class="field" id="field-reg-username">
+                    <input type="text" id="reg-username" placeholder="Anaran'ny mpampiasa" required autocomplete="username">
+                    <span class="field-icon"></span>
+                    <span class="field-error">Feno azafady ity saha ity.</span>
+                </div>
+
+                <div class="field" id="field-reg-email">
+                    <input type="email" id="reg-email" placeholder="Mailaka" required autocomplete="email">
+                    <span class="field-icon"></span>
+                    <span class="field-error">Mailaka tsy mety.</span>
+                </div>
+
+                <div class="field" id="field-reg-password">
+                    <input type="password" id="reg-password" placeholder="Teny miafina" required autocomplete="new-password">
+                    <span class="field-icon"></span>
+                    <span class="field-error">6 tarehin-tsoratra farafahakeliny.</span>
+                </div>
+
+                <button type="submit" class="btn btn-block">Hisoratra anarana</button>
+
+                <p>na misoratra anarana amin'ny alalan'ny tambajotra sosialy</p>
+                <div class="social-icon">
+                    <button type="button" class="social-btn" id="btn-google-reg" aria-label="Hisoratra amin'ny Google"></button>
+                    <button type="button" class="social-btn" id="btn-facebook-reg" aria-label="Hisoratra amin'ny Facebook"></button>
+                    <button type="button" class="social-btn" id="btn-twitter-reg" aria-label="Hisoratra amin'ny Twitter/X"></button>
+                </div>
+            </form>
+        </div>
+
+        <!-- ===== PANELS DE TRANSITION ===== -->
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Manao ahoana, tongasoa !</h1>
+                <p>Mbola tsy manana kaonty ianao ?</p>
+                <button class="btn btn-outline register-btn">Hisoratra anarana</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Tongasoa indray !</h1>
+                <p>Efa manana kaonty ianao ?</p>
+                <button class="btn btn-outline login-btn">Hiditra</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="connexion.js"></script>
+</body>
+
+</html>

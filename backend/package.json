@@ -1,0 +1,23 @@
+{
+  "name": "teny-malagasy-backend",
+  "version": "0.1.0",
+  "description": "API Node.js/Express + SQL pour la plateforme de jeux de mots Malagasy",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2",
+    "google-auth-library": "^9.11.0",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.11.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
