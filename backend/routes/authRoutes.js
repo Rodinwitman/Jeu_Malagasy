@@ -1,9 +1,28 @@
-const router = require('express').Router();
-const authController = require('../controllers/authController');
+const express = require("express");
 
-router.post('/register', authController.register);
-router.post('/login', authController.login);
-router.post('/google', authController.loginWithGoogle);     // vérifie le jeton Google côté serveur
-router.post('/facebook', authController.loginWithFacebook);  // vérifie le jeton Facebook côté serveur
+const router = express.Router();
+const authController = require(
+    "../controllers/authController"
+);
+
+router.post(
+    "/register",
+    authController.register
+);
+
+router.post(
+    "/login",
+    authController.login
+);
+
+router.post(
+    "/google",
+    authController.loginWithGoogle
+);
+
+router.post(
+    "/facebook",
+    authController.loginWithFacebook
+);
 
 module.exports = router;

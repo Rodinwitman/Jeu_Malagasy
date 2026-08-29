@@ -9,13 +9,12 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
-    "better-sqlite3": "^13.0.3",
     "cors": "^2.8.6",
     "dotenv": "^16.6.1",
     "express": "^4.22.2",
     "google-auth-library": "^9.11.0",
     "jsonwebtoken": "^9.0.3",
-    "pg": "^8.11.5"
+    "pg": "^8.23.0"
   },
   "keywords": [],
   "author": "",

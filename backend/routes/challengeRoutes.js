@@ -1,10 +1,35 @@
-const router = require('express').Router();
-const challengeController = require('../controllers/challengeController');
-const requireAuth = require('../middleware/authMiddleware');
+const express = require("express");
 
-router.get('/today', challengeController.getToday);
-router.get('/progress', requireAuth, challengeController.getProgress);
-router.post('/progress', requireAuth, challengeController.updateProgress);
-router.get('/stats', requireAuth, challengeController.getStats);
+const router = express.Router();
+const challengeController = require(
+    "../controllers/challengeController"
+);
+
+const authMiddleware = require(
+    "../middleware/authMiddleware"
+);
+
+router.get(
+    "/today",
+    challengeController.getToday
+);
+
+router.get(
+    "/progress",
+    authMiddleware,
+    challengeController.getProgress
+);
+
+router.post(
+    "/progress",
+    authMiddleware,
+    challengeController.updateProgress
+);
+
+router.get(
+    "/stats",
+    authMiddleware,
+    challengeController.getStats
+);
 
 module.exports = router;

@@ -1,7 +1,18 @@
-const router = require('express').Router();
-const leaderboardController = require('../controllers/leaderboardController');
+const express = require("express");
 
-router.get('/global', leaderboardController.getGlobal);
-router.get('/:jeu', leaderboardController.getByGame);
+const router = express.Router();
+const leaderboardController = require(
+    "../controllers/leaderboardController"
+);
+
+router.get(
+    "/",
+    leaderboardController.getGlobal
+);
+
+router.get(
+    "/:jeu",
+    leaderboardController.getByGame
+);
 
 module.exports = router;

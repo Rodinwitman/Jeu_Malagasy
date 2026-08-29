@@ -1,41 +1,137 @@
 /**
  * controllers/reviewController.js
  */
-const crypto = require('crypto');
-const db = require('../config/database');
 
-exports.getByGame = (req, res) => {
-    const jeu = req.params.jeu;
-    const reviews = db.prepare(`
-        SELECT a.id, a.user_id as userId, u.username, a.note, a.commentaire, a.created_at as date
-        FROM avis a JOIN users u ON u.id = a.user_id
-        WHERE a.jeu_id = ?
-        ORDER BY a.created_at DESC
-    `).all(jeu);
+const crypto = require("crypto");
+const { pool } = require("../config/database");
 
-    const stats = db.prepare(`SELECT AVG(note) as moyenne, COUNT(*) as nombre FROM avis WHERE jeu_id = ?`).get(jeu);
+exports.getByGame = async(req, res) => {
+    try {
+        const jeuId = req.params.jeu;
 
-    res.json({
-        reviews,
-        moyenne: stats.moyenne ? Math.round(stats.moyenne * 10) / 10 : 0,
-        nombre: stats.nombre
-    });
+        const {
+            rows: reviews
+        } = await pool.query(
+            `
+      SELECT
+        id,
+        user_id,
+        jeu_id,
+        note,
+        commentaire,
+        created_at
+      FROM avis
+      WHERE jeu_id = $1
+      ORDER BY created_at DESC
+      `, [jeuId]
+        );
+
+        const {
+            rows: statsRows
+        } = await pool.query(
+            `
+      SELECT
+        AVG(note)::numeric(10, 2) AS moyenne,
+        COUNT(*)::integer AS nombre
+      FROM avis
+      WHERE jeu_id = $1
+      `, [jeuId]
+        );
+
+        const stats = statsRows[0];
+
+        const moyenne = stats.moyenne ?
+            Math.round(Number(stats.moyenne) * 10) / 10 :
+            0;
+
+        return res.json({
+            reviews,
+            moyenne,
+            nombre: Number(stats.nombre || 0)
+        });
+    } catch (error) {
+        console.error(
+            "Erreur récupération avis :",
+            error
+        );
+
+        return res.status(500).json({
+            message: "Erreur lors du chargement des avis."
+        });
+    }
 };
 
-exports.addReview = (req, res) => {
-    const userId = req.userId;
-    const { jeu, note, commentaire } = req.body;
-    if (!jeu || !note || note < 1 || note > 5) {
-        return res.status(400).json({ message: 'Feno ny jeux sy ny naotra (1-5).' });
+exports.addReview = async(req, res) => {
+    try {
+        const userId = req.userId;
+
+        const {
+            jeu,
+            note,
+            commentaire
+        } = req.body;
+
+        const noteValue = Number(note);
+
+        if (!userId) {
+            return res.status(401).json({
+                message: "Utilisateur non authentifié."
+            });
+        }
+
+        if (!jeu ||
+            !Number.isInteger(noteValue) ||
+            noteValue < 1 ||
+            noteValue > 5
+        ) {
+            return res.status(400).json({
+                message: "Feno ny jeu sy ny naoty (1-5)."
+            });
+        }
+
+        const id = `r_${Date.now()}_${crypto
+      .randomBytes(3)
+      .toString("hex")}`;
+
+        const {
+            rows
+        } = await pool.query(
+            `
+      INSERT INTO avis (
+        id,
+        user_id,
+        jeu_id,
+        note,
+        commentaire
+      )
+      VALUES ($1, $2, $3, $4, $5)
+      ON CONFLICT (user_id, jeu_id)
+      DO UPDATE SET
+        note = EXCLUDED.note,
+        commentaire = EXCLUDED.commentaire,
+        created_at = NOW()
+      RETURNING *
+      `, [
+                id,
+                userId,
+                jeu,
+                noteValue,
+                commentaire || null
+            ]
+        );
+
+        return res.status(201).json({
+            message: "Voaraikitra ny hevitrao.",
+            review: rows[0]
+        });
+    } catch (error) {
+        console.error(
+            "Erreur ajout avis :",
+            error
+        );
+
+        return res.status(500).json({
+            message: "Erreur lors de l'enregistrement de l'avis."
+        });
     }
-
-    // Un avis par (utilisateur, jeu) : upsert grâce à la contrainte UNIQUE(user_id, jeu_id)
-    const id = `r_${Date.now()}_${crypto.randomBytes(3).toString('hex')}`;
-    db.prepare(`
-        INSERT INTO avis (id, user_id, jeu_id, note, commentaire)
-        VALUES (?, ?, ?, ?, ?)
-        ON CONFLICT(user_id, jeu_id) DO UPDATE SET note=excluded.note, commentaire=excluded.commentaire, created_at=datetime('now')
-    `).run(id, userId, jeu, note, commentaire || null);
-
-    res.status(201).json({ message: 'Voaraikitra ny hevitrao.' });
 };

@@ -1,31 +1,70 @@
 /**
  * controllers/leaderboardController.js
  */
-const db = require('../config/database');
 
-exports.getGlobal = (req, res) => {
-    const rows = db.prepare(`
-        SELECT p.user_id as userId, u.username, p.xp, p.niveau_global as niveauGlobal
-        FROM profils_joueur p
-        JOIN users u ON u.id = p.user_id
-        WHERE p.xp > 0
-        ORDER BY p.xp DESC
-        LIMIT 100
-    `).all();
-    res.json(rows);
+const { pool } = require("../config/database");
+
+exports.getGlobal = async(req, res) => {
+    try {
+        const {
+            rows
+        } = await pool.query(
+            `
+      SELECT
+        u.username,
+        SUM(s.points)::integer AS points_total
+      FROM scores s
+      JOIN users u
+        ON u.id = s.user_id
+      GROUP BY u.id, u.username
+      ORDER BY points_total DESC
+      LIMIT 100
+      `
+        );
+
+        return res.json(rows);
+    } catch (error) {
+        console.error(
+            "Erreur classement global :",
+            error
+        );
+
+        return res.status(500).json({
+            message: "Erreur lors du chargement du classement."
+        });
+    }
 };
 
-exports.getByGame = (req, res) => {
-    const jeu = req.params.jeu;
-    // Meilleur score par utilisateur pour ce jeu
-    const rows = db.prepare(`
-        SELECT s.user_id as userId, u.username, MAX(s.points) as points
-        FROM scores s
-        JOIN users u ON u.id = s.user_id
-        WHERE s.jeu_id = ?
-        GROUP BY s.user_id
-        ORDER BY points DESC
-        LIMIT 100
-    `).all(jeu);
-    res.json(rows);
+exports.getByGame = async(req, res) => {
+    try {
+        const jeuId = req.params.jeu;
+
+        const {
+            rows
+        } = await pool.query(
+            `
+      SELECT
+        u.username,
+        SUM(s.points)::integer AS points_total
+      FROM scores s
+      JOIN users u
+        ON u.id = s.user_id
+      WHERE s.jeu_id = $1
+      GROUP BY u.id, u.username
+      ORDER BY points_total DESC
+      LIMIT 100
+      `, [jeuId]
+        );
+
+        return res.json(rows);
+    } catch (error) {
+        console.error(
+            "Erreur classement par jeu :",
+            error
+        );
+
+        return res.status(500).json({
+            message: "Erreur lors du chargement du classement."
+        });
+    }
 };

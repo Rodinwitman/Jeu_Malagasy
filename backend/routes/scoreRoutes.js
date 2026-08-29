@@ -1,8 +1,24 @@
-const router = require('express').Router();
-const scoreController = require('../controllers/scoreController');
-const requireAuth = require('../middleware/authMiddleware');
+const express = require("express");
 
-router.post('/', requireAuth, scoreController.addScore);
-router.get('/user/:userId', scoreController.getUserScores);
+const router = express.Router();
+const scoreController = require(
+    "../controllers/scoreController"
+);
+
+const authMiddleware = require(
+    "../middleware/authMiddleware"
+);
+
+router.post(
+    "/",
+    authMiddleware,
+    scoreController.addScore
+);
+
+router.get(
+    "/:userId",
+    authMiddleware,
+    scoreController.getUserScores
+);
 
 module.exports = router;

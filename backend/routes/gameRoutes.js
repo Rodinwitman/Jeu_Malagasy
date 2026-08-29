@@ -1,7 +1,13 @@
-const router = require('express').Router();
-const gameController = require('../controllers/gameController');
+const express = require("express");
 
-router.get('/', gameController.listGames);
-router.get('/:id/niveau/:n', gameController.getLevelConfig); // paramètres du niveau N (1-300)
+const router = express.Router();
+const gameController = require(
+    "../controllers/gameController"
+);
+
+router.get(
+    "/",
+    gameController.getGames
+);
 
 module.exports = router;
