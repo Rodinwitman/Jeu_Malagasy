@@ -33,8 +33,8 @@ document.getElementById('feature-grid').innerHTML = FEATURES.map(f => `
 
 /* ---- Aperçu des jeux ---- */
 const GAMES_PREVIEW = [
-    { id: 'mot_cache', nom: 'Mot Nafenina', desc: "Tadiavo ilay teny Malagasy miafina alohan'ny hifaranan'ny fotoana.", fonctionnel: true },
-    { id: 'devinette', nom: 'Devinette', desc: "Valio ny fanontaniana amin'ny alalan'ny safidy atolotra.", fonctionnel: true },
+    { id: 'mot_cache', nom: 'litera Nafenina', desc: "Tadiavo ilay teny Malagasy miafina alohan'ny hifaranan'ny fotoana.", fonctionnel: true },
+    { id: 'devinette', nom: 'Akamatatra', desc: "Valio ny fanontaniana amin'ny alalan'ny safidy atolotra.", fonctionnel: true },
     { id: 'scrabble', nom: 'Scrabble', desc: "Mamoròna teny Malagasy amin'ireo litera omena.", fonctionnel: true },
     { id: 'pendu', nom: 'Pendu', desc: "Tezao ilay teny alohan'ny hahatapitra ny fihodinana.", fonctionnel: false },
     { id: 'wordle', nom: 'Wordle', desc: "Tadiavo ilay teny ao anatin'ny fihodinana voafetra.", fonctionnel: false }
